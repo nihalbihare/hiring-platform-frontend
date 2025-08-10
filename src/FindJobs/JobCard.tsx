@@ -1,47 +1,72 @@
-import { IconBookmark, IconClockHour3 } from '@tabler/icons-react'
-import React from 'react'
-import { Divider, Text } from '@mantine/core';
+import { IconBookmark, IconBookmarkFilled, IconClockHour3 } from '@tabler/icons-react'
+import { Button, Divider, Text } from '@mantine/core';
 import { Link } from 'react-router-dom';
+import { timeAgo } from '../Services/Utilities';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeProfile } from '../Slices/ProfileSlice';
 
 const JobCard = (props:any) => {
+    const dispatch = useDispatch()
+    const profile = useSelector((state:any)=>state.profile)
+    const handleSaveJobs = ()=>{
+ let savedJobs: any = [...profile.savedJobs];
+        if(savedJobs?.includes(props.id)){
+            savedJobs = savedJobs?.filter((id:any)=>id != props.id) // if props.id include so we remove the id 
+        }
+        else{
+            savedJobs = [...savedJobs,props.id] // else add that id into the saved jobs
+        }
+       let updateProfile = { ...profile, savedJobs: savedJobs }
+      dispatch(changeProfile(updateProfile))
+   
+    }
   return (
-    <Link to='/jobs-desc' className="bg-mine-shaft-900 p-4 w-72 flex flex-col gap-3 rounded-xl 
-  shadow-none hover:shadow-bright-sun transition-shadow duration-300">
+    <div className="bg-mine-shaft-900 p-4 w-72 flex flex-col gap-3 rounded-xl 
+  shadow-none hover:shadow-bright-sun transition-shadow duration-300 sm-mx:w-full">
 
-  
-        <div className='flex justify-between'>
-            <div className='flex gap-2 items-center '>
-                <div className=' p-2 bg-mine-shaft-800 rounded-md' >
-                    <img className='h-7' src={`Icons/${props.company}.png`} alt="" />
+        <div className='flex justify-between '>
+            <div className='flex gap-2 items-center  '>
+                <div className=' p-2 bg-mine-shaft-800 rounded-md ' >
+                <img className='h-7' src={`/Icons/${props.company}.png`} alt="" />
+
                 </div>
                 <div>
                     <div className='font-semibold'>{props.jobTitle}</div>
-                    <div className='text-xs text-mine-shaft-300'>{props.company}&#x2022; {props.applicants} Applicants</div>
+                    <div className='text-xs text-mine-shaft-300'>{props.company}&#x2022; 
+                        {props.applicants?props.applicants.length:0} Applicants</div>
                 </div>
-            </div>
-           <IconBookmark className='text-mine-shaft-300  cursor-pointer'/>
+            </div>{profile.savedJobs?.includes(props.id)?<IconBookmarkFilled onClick={handleSaveJobs} 
+            className='text-bright-sun-400   cursor-pointer'/>:
+<IconBookmark  onClick={handleSaveJobs}  className='hover:text-bright-sun-400 text-mine-shaft-300  cursor-pointer'/>}
         </div>
-        <div className='flex gap-2 [&>div]:py-1 [&>div]: px-2
+        <div className='flex gap-2 [&>div]:py-1 [&>div]:px-2
          [&>div]:bg-mine-shaft-800 [&_div]:text-bright-sun-400 [&>div]:rounded-lg text-xs'>
             <div>{props.experience}</div>
             <div>{props.jobType}</div>
-            <div>{props.loca}</div>
+            <div>{props.location}</div>
         </div>
         <Text className='!text-xs text-justify !text-mine-shaft-300' lineClamp={3}>
-            {props.description}
+            {props.about}
     </Text>
     <Divider size='xs' color='mine-shaft.7'/>
         <div className='flex justify-between'>
             <div className='font-semibold text-mine-shaft-200'>
-                &#8377; {props.package}
+                &#8377; {props.packageOffered} LPA
             </div >
             <div className=' flex gap-1 items-center text-xs text-mine-shaft-400'> 
-                <IconClockHour3 className='h-5 w-5' stroke={1.5}/>  posted {props.postedDaysAgo} Days ago
+                <IconClockHour3 className='h-5 w-5' stroke={1.5}/>  Posted {timeAgo(props.postTime)} 
+                {/* so here what happend that first we use utility function time ago and wrap up the post time 
+                into it so that  in converted acc to time sec and minutes also for hours */}
+
                 </div>
+                
         </div>
+        <Link to= {`/jobs-desc/${props.id}`}>
+         <Button color='bright-sun.4' variant="outline" fullWidth>View Job</Button>
+        </Link>
        
       
-    </Link>
+    </div>
   )
 }
 

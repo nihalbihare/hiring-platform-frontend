@@ -113,8 +113,9 @@ const SignUp = (props :any) => {
               overlayProps={{ radius: 'sm', blur: 2 }}
               loaderProps={{ color: 'bright-sun.4', type: 'bars' }}
             />
-    <div className='w-1/2 px-20 flex flex-col justify-center gap-4'>
-    <div className='text-2xl font-semibold '>
+<div className='w-1/2 h-full px-20 pt-16 sm-mx:py-20 sm-mx:w-full flex flex-col bs-mx:px-10 md-mx:px-5 gap-4'>
+
+    <div className='text-2xl font-semibold  '>
         Create Account
     </div>
     <TextInput value={data.name} name='name' onChange={handleChange} error={formError.name}  withAsterisk
@@ -156,7 +157,7 @@ const SignUp = (props :any) => {
       </Group>
     </Radio.Group>
 
-<Checkbox autoContrast label={<>I accept {' '} <Anchor>terms & conditions</Anchor></>}
+<Checkbox autoContrast label={<>I accept {' '} <Anchor href='/terms'>terms & conditions</Anchor></>}
     />
     <Button loading={loading} onClick={handleSubmit} autoContrast variant='filled'>Sign Up</Button>
     <div className='mx-auto '>Have an account <span onClick={()=>{navigate('/login'); setdata(form)

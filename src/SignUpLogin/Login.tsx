@@ -2,14 +2,16 @@ import { Anchor, Button, Checkbox, LoadingOverlay, PasswordInput, rem, TextInput
 import { IconAt, IconCheck, IconLock, IconX } from '@tabler/icons-react'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import userService from "../Services/Services";
+import {loginUser} from "../Services/AuthService";
 import { loginValidation } from '../Services/FormValidation';
-import { notifications } from '@mantine/notifications';
 import { useDisclosure } from '@mantine/hooks';
 import ResetPassword from './ResetPassword';
 import { useDispatch } from 'react-redux';
 import { errorNotification, successNotification } from '../Services/NotificationService';
+import { setJwt } from '../Slices/JwtSlice';
+import { jwtDecode } from 'jwt-decode';
 import { setUser } from '../Slices/UserSlice';
+
 
 
 
@@ -41,13 +43,16 @@ const Login = () => {
           } 
           setFormError(newFormError);
           if(valid){
-            userService.loginUser(data)
-            .then((res)=>{
+          loginUser(data)
+          .then((res)=>{
+              setLoading(false)
              successNotification("Login successfully" , 
               "Redirecting to home page")
+              dispatch(setJwt(res.jwt))
+              const decoded = jwtDecode(res.jwt)
+              dispatch(setUser({...decoded , email:decoded.sub}))
+              console.log(decoded)
               setTimeout(() => {
-                setLoading(false)
-                dispatch(setUser(res))
                 navigate("/")
                 
               }, 3000);
@@ -69,9 +74,9 @@ const Login = () => {
           overlayProps={{ radius: 'sm', blur: 2 }}
           loaderProps={{ color: 'bright-sun.4', type: 'bars' }}
         />
-      <div className='w-1/2 px-20 flex flex-col justify-center gap-4'>
+      <div className='w-1/2 px-20 sm-mx:w-full flex flex-col bs-mx:px-10 md-mx:px-5 justify-center gap-4'>
        <div className='text-2xl font-semibold  '>
-           Create Account
+           Login
        </div>
        <TextInput value={data.email} name='email' error={formError.email} onChange={handleChange} withAsterisk leftSectionPointerEvents="none" leftSection={
             <IconAt style={{width: rem(16) , height: rem(16)}} />} label="Your email"
@@ -83,15 +88,16 @@ const Login = () => {
               placeholder="Enter Password" />
 
    
-   <Checkbox autoContrast label={<>I accept {' '} <Anchor>terms & conditions</Anchor></>}
+   <Checkbox autoContrast label={<>I accept {' '} <Anchor href='/terms'>terms & conditions</Anchor></>}
        />
        <Button loading={loading} onClick={handleSubmit} autoContrast variant='filled'>Login</Button>
        <div className='mx-auto'>Don't Have an account  <span onClick={()=>{navigate('/sign-up'); setdata(form) 
    setFormError(form)
     }}
        className='text-bright-sun-400 hover:underline cursor-pointer' >Sign Up</span></div>
-       <div className='text-bright-sun-400 hover:underline cursor-pointer text-center
-       'onClick={open} >Forget password</div>
+       <div className='text-bright-sun-400 hover:underline cursor-pointer text-center'
+       
+       onClick={open} >Forget password</div>
        </div>
 
        <ResetPassword opened={opened} close={close} />

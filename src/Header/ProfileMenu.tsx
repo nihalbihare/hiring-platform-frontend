@@ -1,38 +1,42 @@
 import { Menu, Button, Text, Avatar, Switch } from '@mantine/core';
-import {
-  IconSettings,
-  IconSearch,
-  IconPhoto,
-  IconMessageCircle,
-  IconTrash,
-  IconArrowsLeftRight,
-  IconUserCircle,
-  IconFileText,
-  IconMoon,
-  IconSun,
-  IconMoonStars,
-  IconLogout2,
+import {IconMessageCircle, IconUserCircle, IconFileText, IconMoon, IconSun, IconMoonStars,   IconLogout2,
 } from '@tabler/icons-react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { removeUser } from '../Slices/UserSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { getProfile } from '../Services/ProfileServices';
+import { setProfile } from '../Slices/ProfileSlice';
+import { removeJwt } from '../Slices/JwtSlice';
 
 const  ProfileMenu =()=> {
     const [checked, setChecked] = useState(false);
     const [opened, setOpened] = useState(false);
+    const navigate = useNavigate()
     const dispatch =useDispatch();
     const user =useSelector((state:any)=>state.user)
+    const profile = useSelector((state: any) => state.profile)
+          useEffect(() => {
+            getProfile(user.id).then((data: any) => {
+              dispatch(setProfile(data))
+            }).catch((error: any) => {
+              console.log(error);
+            })
+        
+        
+          }, [])
 
-   const handleLogOut =()=>{
-    dispatch(removeUser())
-   }
+ const handleLogOut = () => {
+  dispatch(removeJwt());            // ✅ Clear JWT from Redux
+  localStorage.removeItem("token"); // ✅ Already clears from localStorage
+  dispatch(removeUser());           // ✅ Clear user slice
+};
   return (
     <Menu shadow="md" width={200}  opened={opened} onChange={setOpened}>
       <Menu.Target>
-      <div className='flex items-center cursor-pointer gap-1.5 '>
+      <div className='flex items-center xsm-mx:hidden cursor-pointer gap-1.5 '>
             <div>{user.name}</div>
-            <Avatar src='/avatar.png' alt="it's me" />
+            <Avatar  src={profile.picture?`data:image/jpeg;base64,${profile.picture}`:"/avatar.png"} alt="it's me" />
             </div>
       </Menu.Target>
 
@@ -42,13 +46,7 @@ const  ProfileMenu =()=> {
           Profile
         </Menu.Item>
           </Link>
-        <Menu.Item leftSection={<IconMessageCircle size={14} />}>
-          Messages
-        </Menu.Item>
-        <Menu.Item leftSection={<IconFileText size={14} />}>
-        Resume
-        </Menu.Item>
-        <Menu.Item
+        {/* <Menu.Item
           leftSection={<IconMoon size={14} />}
           rightSection={
             <Switch  checked={checked}
@@ -60,7 +58,7 @@ const  ProfileMenu =()=> {
     />
           }>
           Dark Mode
-        </Menu.Item>
+        </Menu.Item> */}
 
         <Menu.Divider />
 

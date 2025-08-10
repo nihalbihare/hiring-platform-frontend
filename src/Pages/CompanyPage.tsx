@@ -2,8 +2,8 @@ import { Button } from '@mantine/core'
 import { IconArrowLeft } from '@tabler/icons-react'
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import SimilarCompany from '../CopmanyProfile/SimilarCompany'
-import Company from '../CopmanyProfile/Company'
+import SimilarCompany from '../CompanyProfile/SimilarCompany'
+import Company from '../CompanyProfile/Company'
 
 
 
@@ -16,7 +16,7 @@ const CompanyPage = () => {
     <Button my='md' leftSection={<IconArrowLeft size={20}/>}
     onClick={()=>navigate(-1)} variant='light' color='bright-sun.4'>Back</Button>
   <div className='flex gap-5'>
-    <Company/>
+    <Company />
     <SimilarCompany/>
     </div>
     </div>

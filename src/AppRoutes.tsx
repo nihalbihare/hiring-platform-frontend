@@ -16,6 +16,10 @@ import PostJobPage from './Pages/PostJobPage'
 import HomePage from './Pages/HomePage'
 import Footer from './Footer/Footer'
 import { useSelector } from 'react-redux'
+import ProtectedRoute from './Services/ProtectedRoutes'
+import PublicRoute from './Services/PublicRoute'
+import TermsAndCondition from './TermsAndCondition'
+import Unauthorized from './Unauth'
 
 const AppRoutes = () => {
     const user = useSelector((state :any)=>state.user)
@@ -26,19 +30,23 @@ const AppRoutes = () => {
       <Header/>
       <Divider size='xs' mx='md' />
       <Routes>
+        <Route path='/' element={<HomePage/>}/>
         <Route path='/find-jobs' element={<FindJobs/>}/>
         <Route path='/find-talent' element={<FindTalent/>}/>
-        <Route path='/jobs-desc' element={<JobDescPage/>}/>
-        <Route path='/apply-job' element={<ApplyJobPage/>}/>
-        <Route path='/posted-jobs' element={<PostedJobPage/>}/>
-        <Route path='/sign-up' element={user?<Navigate to='/'/>:<SignUpPage/>}/>
-        <Route path='/login' element={user?<Navigate to='/'/>:<SignUpPage/>}/>
+        <Route path='/jobs-desc/:id' element={<JobDescPage/>}/>
+        <Route path='/apply-job/:id' element={<ApplyJobPage/>}/>
+        <Route path='/posted-jobs' element={<ProtectedRoute allowedRoles={['EMPLOYER']}><PostedJobPage/></ProtectedRoute>}/>
+        <Route path='/posted-jobs/:id' element={<ProtectedRoute allowedRoles={['EMPLOYER']}><PostedJobPage/></ProtectedRoute>}/>
+        <Route path='/sign-up' element={<PublicRoute><SignUpPage/></PublicRoute>}/>
+        <Route path='/login' element={<PublicRoute><SignUpPage/></PublicRoute>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
-        <Route path='/talent-profile' element={<TalentProfile />}/>
-        <Route path='/job-history' element={<JobHistoryPage/>}/>
-        <Route path='/company' element={<CompanyPage />}/>
-        <Route path='/post-jobs' element={<PostJobPage/>}/>
-        <Route path='*' element={<HomePage/>}/>
+        <Route path='/unauthorized' element={<Unauthorized/>} />
+          <Route path="/terms" element={<TermsAndCondition />} />
+        <Route path='/talent-profile/:id' element={<TalentProfile />}/>
+        <Route path='/job-history' element={<ProtectedRoute allowedRoles={['APPLICANT']}><JobHistoryPage/></ProtectedRoute>}/>
+        <Route path='/company/:name' element={<CompanyPage />}/>
+         <Route path='/post-jobs' element={<ProtectedRoute allowedRoles={['EMPLOYER']}><PostJobPage/></ProtectedRoute>}/>
+        <Route path='/post-jobs/:id' element={<ProtectedRoute allowedRoles={['EMPLOYER']}><PostJobPage/></ProtectedRoute>}/>
       </Routes>
       <Footer/>
       </div>

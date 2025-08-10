@@ -44,15 +44,19 @@ const handleSendOtp =() =>{
         errorNotification("Otp sending failed", err.response?.data?.errorInfo )
     })
 }
-const handleVerifyOtp = (otp:string)=>{
-    verifyOtp(email, otp).then((res)=>{
-        console.log(res)
-        setVerfied(true)
-    }).catch((err)=>{
-        console.log(err)
+const handleVerifyOtp = (otp: string) => {
+  verifyOtp(email, otp)
+    .then((res) => {
+      console.log(res);
+      setVerfied(true);
+      successNotification("OTP Verified Successfully", "You can now reset your password.");
     })
+    .catch((err) => {
+      console.log(err);
+      errorNotification("OTP verification failed", err.response?.data?.errorInfo);
+    });
+};
 
-}
 const resendOtp =()=>{
     if(resendLoader) return
     handleSendOtp()

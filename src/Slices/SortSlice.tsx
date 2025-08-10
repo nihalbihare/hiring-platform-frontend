@@ -1,0 +1,23 @@
+import { createSlice } from '@reduxjs/toolkit'
+import React from 'react'
+import reducer from './UserSlice'
+
+const SortSlice = createSlice({
+    name : 'sort',
+    initialState : {},
+    reducers :{
+        updateSort:(state , action) =>{
+            state = action.payload
+            console.log(state)
+            return state
+        },
+        resetSort:(state) =>{
+            state = {}
+            return state
+        }
+    }
+})
+export const {updateSort , resetSort} = SortSlice.actions
+export default SortSlice.reducer;
+
+

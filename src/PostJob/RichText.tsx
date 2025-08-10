@@ -8,9 +8,13 @@ import TextAlign from '@tiptap/extension-text-align';
 import Superscript from '@tiptap/extension-superscript';
 import SubScript from '@tiptap/extension-subscript';
 import { content } from '../Data/Data';
+import { useEffect } from 'react';
 
  
-  const RichText =()=> {
+  const RichText =(props:any)=> {
+    useEffect(()=>{
+      editor?.commands.setContent(props.data)
+    },[props])
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -21,7 +25,13 @@ import { content } from '../Data/Data';
       Highlight,
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
     ],
-    content,
+    content:props.form.getValues().description, // this fetches the initial value of the description
+    onUpdate({editor}){// This is a callback function triggered whenever the editor's content is updated.
+//editor.getHTML() retrieves the current HTML content from the editor.
+      props.form.setFieldValue('description', editor.getHTML()) //This line updates the form's "description" 
+      // field with the latest HTML from the editor.
+//Keeps the editor and form field synchronized — every time you type in the editor, it updates the form value.
+    },
   });
 
   return (

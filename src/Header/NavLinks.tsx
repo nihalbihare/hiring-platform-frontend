@@ -5,16 +5,16 @@ const NavLinks = () => {
   const links = [
     { name: 'find Jobs', url: 'find-jobs' },
     { name: 'find Talent', url: 'find-talent' },
-    { name: 'post Jobs', url: 'post-jobs' },
-    { name: 'Posted Jobs', url: 'posted-jobs' },
+    { name: 'post Jobs', url: 'post-jobs/0' },
+    { name: 'Posted Jobs', url: 'posted-jobs/0' },
     { name: 'Job History', url: 'job-history' },
-    { name: 'Sign Up', url: 'sign-up' }
+    // { name: 'Sign Up', url: 'sign-up' }
   ];
 
   const location = useLocation();
 
   return (
-    <div className='flex gap-5 text-mine-shaft-300 h-full items-center'>
+    <div className='flex gap-5 bs-mx:hidden text-mine-shaft-300 h-full items-center'>
       {links.map((link, index) => (
         <div
           key={index}

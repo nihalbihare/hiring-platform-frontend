@@ -6,10 +6,11 @@ import { useLocation } from 'react-router-dom'
 const Footer = () => {
    const location = useLocation()
    return (
-     location.pathname !="/sign-up" && location.pathname != '/login' ? <div className='pt-20 pb-5 flex gap-5 justify-around bg-mine-shaft-950 font-["poppins"]'>
+     location.pathname !="/sign-up" && location.pathname != '/login' ? 
+     <div className='pt-20 pb-5 flex gap-8 flex-wrap justify-around bg-mine-shaft-950 font-["poppins"]'>
 
       {/* Logo & description */}
-      <div className='w-1/4 flex flex-col gap-4'>
+      <div className='w-1/4 sm-mx:w-1/3 xs-mx:w-1/2 xsm-mx:w-full flex flex-col gap-4 '>
         <div className='flex gap-1 items-center text-bright-sun-400'>
           <IconAtom className='h-6 w-6' stroke={1.5} />
           <div className='text-xl font-semibold'>Hiring Platform</div>

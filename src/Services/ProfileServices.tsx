@@ -1,19 +1,24 @@
-import axios from "axios"
+
+import axiosInstance from "../Inceptor/AxiosInceptor";
 
 
-
-const base_url = "http://localhost:8080/profiles"  
-
-const getProfile = async (id :number)=>{
-    return axios.get(`${base_url}/get/${id}`)
-    .then(res=>res.data)
+ export const getProfile = async (id: any) => {
+    return axiosInstance.get(`/profiles/get/${id}`)
+    .then(result => result.data)
     .catch(error =>{throw error})
 
-}
-const UpdateProfile = async (profile : any)=>{
-    return axios.put(`${base_url}/update/`, profile)
-    .then(res=>res.data)
-    .catch(error =>{throw error})
+  }
+
+export const updateProfile = async (profile: any) => {
+  return axiosInstance.put(`/profiles/update`, profile)
+  .then(result => result.data)
+  .catch(error=>{throw error})
+};
+export const getAllProfiles = async() =>{
+  return axiosInstance.get(`/profiles/getAll`)
+  .then(result => result.data)
+  .catch(error=>{throw error})
 
 }
-export  {getProfile ,UpdateProfile}
+
+

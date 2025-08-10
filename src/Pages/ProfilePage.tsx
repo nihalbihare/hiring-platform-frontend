@@ -12,10 +12,9 @@ const ProfilePage = () => {
     <Link to='/find-talent' className='my-4 inline-block'>
     <Button leftSection={<IconArrowLeft size={20}/>} variant='light' color='bright-sun.4'>Back</Button>
     </Link>
-    <div className='flex gap-5'>
+    <div className='flex w-full gap-5'>
         <Profile {...profile}/>
-        <div className='mx-8 '>
-        </div>
+       
     </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { UpdateProfile } from '../Services/ProfileServices';
+import { updateProfile } from '../Services/ProfileServices';
 
 const ProfileSlice = createSlice({
   name: "profile",
@@ -8,11 +8,13 @@ const ProfileSlice = createSlice({
     // Action to change the profile in the state
     changeProfile: (state, action) => {
       // Directly update the state without overwriting the reference
+      state = updateProfile(action.payload)
       return { ...state, ...action.payload };
     },
     // Action to set the profile in the state
     setProfile: (state, action) => {
-      return { ...action.payload };  // Set profile from payload
+      state = action.payload
+      return state  // Set profile from payload
     },
   },
 });
