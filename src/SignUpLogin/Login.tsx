@@ -1,7 +1,7 @@
 import { Anchor, Button, Checkbox, LoadingOverlay, PasswordInput, rem, TextInput } from '@mantine/core'
-import { IconAt, IconCheck, IconLock, IconX } from '@tabler/icons-react'
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { IconAt, IconLock } from '@tabler/icons-react'
+import  { useState } from 'react'
+import {  useNavigate } from 'react-router-dom'
 import {loginUser} from "../Services/AuthService";
 import { loginValidation } from '../Services/FormValidation';
 import { useDisclosure } from '@mantine/hooks';

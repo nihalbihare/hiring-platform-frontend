@@ -1,7 +1,7 @@
 import { Anchor, Button, Checkbox, Group, LoadingOverlay, PasswordInput, Radio, rem, TextInput } from '@mantine/core'
 import { IconAt, IconCheck, IconLock, IconX } from '@tabler/icons-react'
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import {  useNavigate } from 'react-router-dom'
 import userService from "../Services/Services";
 import signUpValidation from '../Services/FormValidation';
 import { notifications } from '@mantine/notifications';
@@ -14,7 +14,7 @@ import { notifications } from '@mantine/notifications';
   confirmPassword : "",
   accountType : "APPLICANT"
  }
-const SignUp = (props :any) => {
+const SignUp = () => {
   const [data, setdata] = useState<{[key:string]:string}>(form)
   const [formError, setFormError] = useState<{[key:string]:string}>(form)
   const navigate = useNavigate()

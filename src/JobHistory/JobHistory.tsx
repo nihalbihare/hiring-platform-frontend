@@ -1,9 +1,8 @@
 import { Tabs } from '@mantine/core'
-import React, { useEffect, useState } from 'react'
-import { jobList } from '../Data/Data'
 import Card from '../JobHistory/Card'
 import { getAllJobs } from '../Services/JobService'
 import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 
 const JobHistory = () => {
 const profile = useSelector((state:any)=>state.profile)

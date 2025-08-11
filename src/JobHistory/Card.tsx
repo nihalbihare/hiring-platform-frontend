@@ -1,6 +1,5 @@
 import { Button, Divider ,Text } from '@mantine/core'
 import { IconBookmark, IconBookmarkFilled, IconCalendarMonth, IconClockHour3 } from '@tabler/icons-react'
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { timeAgo } from '../Services/Utilities'
 import { useDispatch, useSelector } from 'react-redux'

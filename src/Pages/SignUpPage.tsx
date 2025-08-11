@@ -1,6 +1,5 @@
-import { Button, Divider } from '@mantine/core'
+import { Button } from '@mantine/core'
 import { IconArrowLeft, IconAtom } from '@tabler/icons-react'
-import React from 'react'
 import SignUp from '../SignUpLogin/SignUp'
 import Login from '../SignUpLogin/Login'
 import { useLocation, useNavigate } from 'react-router-dom'

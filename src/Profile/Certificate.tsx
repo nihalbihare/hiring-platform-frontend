@@ -1,6 +1,6 @@
 import { ActionIcon } from '@mantine/core'
 import { IconPencil, IconPlus, IconX } from '@tabler/icons-react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import CertiInput from './CertiInput'
 import CertiCard from './CertiCard'

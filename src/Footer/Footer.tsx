@@ -1,5 +1,4 @@
 import { IconAtom, IconBrandFacebook, IconBrandInstagram, IconBrandX } from '@tabler/icons-react'
-import React from 'react'
 import { footerlinks } from '../Data/Data'
 import { useLocation } from 'react-router-dom'
 

@@ -1,10 +1,9 @@
-import { Collapse, Tabs } from '@mantine/core'
-import React, { useEffect, useState } from 'react'
+import {  Tabs } from '@mantine/core'
 import PostedJobCard from './PostedJobCard'
-import { useDisclosure } from '@mantine/hooks';
+import { useEffect, useState } from 'react';
+
 
 const PostedJobs = (props:any) => {
-     const [opened, { toggle }] = useDisclosure(false);
   const [activeTab , setActiveTab] = useState<string | any >("ACTIVE")
   
  useEffect(() => {

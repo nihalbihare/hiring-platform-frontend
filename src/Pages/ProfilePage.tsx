@@ -1,5 +1,4 @@
-import { Button, Divider } from '@mantine/core'
-import React from 'react'
+import { Button } from '@mantine/core'
 import Profile from '../Profile/Profile'
 import { Link } from 'react-router-dom'
 import { IconArrowLeft } from '@tabler/icons-react'

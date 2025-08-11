@@ -1,6 +1,6 @@
 import { Button, Modal, PasswordInput, PinInput, TextInput } from '@mantine/core'
 import { IconAt, IconLock } from '@tabler/icons-react';
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { changePass, sendOtp, verifyOtp } from '../Services/Services';
 import signUpValidation from '../Services/FormValidation';
 import { errorNotification, successNotification } from '../Services/NotificationService';

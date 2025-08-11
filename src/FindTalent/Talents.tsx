@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
 import TalentsCard from './TalentsCard'
 import { Sort } from '../FindJobs/Sort'
 import { getAllProfiles } from '../Services/ProfileServices'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetFilter } from '../Slices/FilterSlice'
+import { useEffect, useState } from 'react'
 
 const Talents = () => {
   const dispatch = useDispatch()

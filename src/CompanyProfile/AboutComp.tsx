@@ -1,4 +1,3 @@
-import React from 'react'
 import { companyData } from '../Data/Data'
 
 const AboutComp = () => {

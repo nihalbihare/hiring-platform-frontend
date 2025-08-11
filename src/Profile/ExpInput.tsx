@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect } from 'react';
 import {SelectInput} from './SelectInput'; // ✅ correct
 import { field } from '../Data/Data';
 import { Button, Checkbox, Textarea } from '@mantine/core';
@@ -13,8 +13,7 @@ import { useMediaQuery } from '@mantine/hooks';
 const ExpInput = (props: any) => {
   const dispatch = useDispatch();
   const profile = useSelector((state: any) => state?.profile); 
-  const [startDate , setStartDate] =  useState<Date | null>(new Date());
-  const [endDate , setEndDate] =  useState<Date | null>(new Date());
+
   const matches = useMediaQuery('(max-width:475px)')
 
   const select = field;

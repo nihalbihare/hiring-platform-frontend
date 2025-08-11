@@ -1,18 +1,17 @@
-import { Avatar, Button, Divider, Tabs } from '@mantine/core'
+import { Avatar, Divider, Tabs } from '@mantine/core'
 import { IconBriefcase, IconMapPin } from '@tabler/icons-react'
-import React from 'react'
 import AboutComp from './AboutComp'
 import { CompanyJobs } from './CompanyJobs'
 import CompanyEmp from './CompanyEmp'
 
-const Company = (props:any) => {
+const Company = () => {
   return (
     <div className='w-3/4'>
          <div className='relative'>
             <img className='rounded-t-2xl' src="/banner.jpg" alt="" />
             <img className='rounded-full w-36 h-36 absolute
              -bottom-1/4 left-5 border-mine-shaft-950 border-8 
-             bg-mine-shaft-950 p-2 rounded-2xl' src=" /Icons/Google.png" alt="" />
+             bg-mine-shaft-950 p-2' src=" /Icons/Google.png" alt="" />
              </div>
              <div className='px-7 mt-16 '>
              <div className='text-3xl font-semibold flex justify-between'>Google

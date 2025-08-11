@@ -1,8 +1,8 @@
-import { Indicator, Menu, MenuItem, rem, Stack } from "@mantine/core";
+import { Indicator, Menu, rem } from "@mantine/core";
 import { IconBell, IconCheck } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { Notification } from '@mantine/core';
 import { getNotification, readNotification } from "../Services/NotifcationApiService";
 
@@ -22,7 +22,7 @@ const NotificationMenu = () => {
     },[user])
     const unread=(index:number)=>{
       let notifi = [...notifications]
-     notifi = notifi.filter((notification:any , i:number)=> i!=index)
+     notifi = notifi.filter(( i:number)=> i!=index)
       setNotifications(notifi)
       readNotification(notifications[index].id).then((res)=>{
         console.log(res)

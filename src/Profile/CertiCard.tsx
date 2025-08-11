@@ -1,6 +1,5 @@
 import { ActionIcon } from '@mantine/core'
 import { IconTrash } from '@tabler/icons-react'
-import React from 'react'
 import { successNotification } from '../Services/NotificationService'
 import { changeProfile } from '../Slices/ProfileSlice'
 import { useDispatch, useSelector } from 'react-redux'

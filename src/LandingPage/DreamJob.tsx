@@ -1,4 +1,4 @@
-import React from 'react';
+
 import boy from '../assets/Boy.png';
 import { TextInput,Avatar } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';

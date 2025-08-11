@@ -1,6 +1,6 @@
 import { ActionIcon, NumberInput } from '@mantine/core';
-import { IconBriefcase, IconCalendarClock, IconCheck, IconMapPin, IconPencil, IconX } from '@tabler/icons-react';
-import React, { useState } from 'react';
+import { IconBriefcase, IconCheck, IconMapPin, IconPencil, IconX } from '@tabler/icons-react';
+import  { useState } from 'react';
 import { field } from '../Data/Data'; // Assuming 'field' contains the necessary data, including icon components
 import { useForm } from '@mantine/form';
 import { useDispatch, useSelector } from 'react-redux';

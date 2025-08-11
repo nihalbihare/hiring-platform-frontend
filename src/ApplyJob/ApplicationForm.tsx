@@ -1,12 +1,12 @@
 import { Button, FileInput, LoadingOverlay, NumberInput, Textarea, TextInput } from '@mantine/core'
 import { isNotEmpty, useForm } from '@mantine/form'
 import { IconPaperclip } from '@tabler/icons-react'
-import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getBase64 } from '../Services/Utilities'
 import { applyJob } from '../Services/JobService'
 import { errorNotification, successNotification } from '../Services/NotificationService'
 import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 const ApplicationForm = () => {
  const applicantId = useSelector((state:any)=>state.user.id)
@@ -34,7 +34,7 @@ const ApplicationForm = () => {
     };
 
     applyJob(id, applicants)
-      .then((res) => {
+      .then(() => {
         setSubmit(false);
         successNotification("Success", "Application submitted successfully");
         navigate("/job-history");
@@ -121,7 +121,5 @@ const ApplicationForm = () => {
 }
 
 export default ApplicationForm
-function state(state: unknown): unknown {
-  throw new Error('Function not implemented.')
-}
+
 

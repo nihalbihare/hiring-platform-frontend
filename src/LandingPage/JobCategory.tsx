@@ -1,5 +1,4 @@
-import React from 'react'
-import { Carousel } from '@mantine/carousel'
+import { Carousel } from '@mantine/carousel';
 import { jobCategories } from '../Data/Data'
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react'
 

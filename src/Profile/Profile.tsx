@@ -1,24 +1,22 @@
-import { ActionIcon, Avatar, Button, Divider, FileInput, Overlay, TagsInput, Textarea } from '@mantine/core'
-import { IconBriefcase, IconDeviceFloppy, IconEdit, IconMapPin, IconPencil, IconPlus } from '@tabler/icons-react' 
+import {  Avatar,  Divider, FileInput, Overlay } from '@mantine/core'
+import { IconEdit} from '@tabler/icons-react' 
 import { useDispatch, useSelector } from 'react-redux'
-import { getProfile } from '../Services/ProfileServices'
 import Info from './Info'
-import { changeProfile, setProfile } from '../Slices/ProfileSlice'
+import { changeProfile} from '../Slices/ProfileSlice'
 import About from './About'
 import Skills from './Skills'
 import Experience from './Experience'
 import Certificate from './Certificate'
-import { useHover, useMediaQuery } from '@mantine/hooks'
+import { useHover } from '@mantine/hooks'
 import { successNotification } from '../Services/NotificationService'
 import { getBase64 } from '../Services/Utilities'
 
 
-const Profile = (props: any) => {
+const Profile = (props:any) => {
 
      const profile = useSelector((state: any) => state.profile)
   const dispatch = useDispatch()
   const { hovered, ref } = useHover();
-  const matches = useMediaQuery('(max-width:475px)')
 
   const handleFileChange =async (image : any) =>{
     let picture :any = await getBase64(image) 

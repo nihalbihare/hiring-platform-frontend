@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './Header/Header'
 import { Divider } from '@mantine/core'
 import FindJobs from './Pages/FindJobs'
@@ -15,14 +15,13 @@ import CompanyPage from './Pages/CompanyPage'
 import PostJobPage from './Pages/PostJobPage'
 import HomePage from './Pages/HomePage'
 import Footer from './Footer/Footer'
-import { useSelector } from 'react-redux'
 import ProtectedRoute from './Services/ProtectedRoutes'
 import PublicRoute from './Services/PublicRoute'
 import TermsAndCondition from './TermsAndCondition'
 import Unauthorized from './Unauth'
 
 const AppRoutes = () => {
-    const user = useSelector((state :any)=>state.user)
+ 
   return (
 
        <BrowserRouter>

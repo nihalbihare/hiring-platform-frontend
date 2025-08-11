@@ -1,7 +1,6 @@
 import { Button } from '@mantine/core'
 import { IconArrowLeft } from '@tabler/icons-react'
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import SimilarCompany from '../CompanyProfile/SimilarCompany'
 import Company from '../CompanyProfile/Company'
 

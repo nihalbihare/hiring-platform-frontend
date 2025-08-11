@@ -1,8 +1,7 @@
 import { Badge, Tabs } from '@mantine/core'
-import React, { useEffect, useState } from 'react'
 import JobDesc from '../JobsDescription/JobDesc'
-import { talents } from '../Data/Data'
 import TalentsCard from '../FindTalent/TalentsCard'
+import { useEffect, useState } from 'react'
 
 const PostedJobDesc = (props:any) => {
   const [tab , setTab] = useState("overview")

@@ -1,4 +1,3 @@
-import React from 'react'
 import { talents } from '../Data/Data'
 import TalentsCard from '../FindTalent/TalentsCard'
 

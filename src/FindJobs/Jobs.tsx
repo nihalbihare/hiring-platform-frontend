@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
 import { Sort } from './Sort'
 import JobCard from './JobCard'
 import { getAllJobs } from '../Services/JobService'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetFilter } from '../Slices/FilterSlice'
 import { resetSort } from '../Slices/SortSlice'
+import { useEffect, useState } from 'react'
 
 const Jobs = () => {
   // Getting sort and filter states from Redux store

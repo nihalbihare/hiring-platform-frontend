@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
-import { changeProfile } from '../Slices/ProfileSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import { successNotification } from '../Services/NotificationService'
+import  { useState } from 'react'
+import {  useSelector } from 'react-redux'
 import { ActionIcon } from '@mantine/core'
-import { IconDeviceFloppy, IconPencil, IconPlus, IconX } from '@tabler/icons-react'
+import { IconPencil, IconPlus, IconX } from '@tabler/icons-react'
 import ExpCard from './ExpCard'
 import ExpInput from './ExpInput'
-import { isNotEmpty, useForm } from '@mantine/form'
 import { useMediaQuery } from '@mantine/hooks'
 
 const Experience = () => {
-    const dispatch = useDispatch()
     const [edit, setEdit] = useState(false)
     const profile = useSelector((state: any) => state?.profile)
     const [addExp, setAddExp] = useState(false)

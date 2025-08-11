@@ -1,8 +1,7 @@
 import { ActionIcon, Button, Divider } from '@mantine/core'
-import { IconAdjustments, IconBookmark, IconBookmarkFilled, IconMapPin } from '@tabler/icons-react'
-import React, { useEffect, useState } from 'react'
+import {  IconBookmark, IconBookmarkFilled} from '@tabler/icons-react'
 import { Link } from 'react-router-dom'
-import { card, desc, skills } from '../Data/Data'
+import { card } from '../Data/Data'
 //@ts-ignore
 import DOMPurify from 'dompurify'
 import { timeAgo } from '../Services/Utilities'
@@ -10,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeProfile } from '../Slices/ProfileSlice'
 import { postJob } from '../Services/JobService'
 import { errorNotification, successNotification } from '../Services/NotificationService'
+import { useEffect, useState } from 'react'
 
 const JobDesc = (props:any) => {
     const dispatch = useDispatch()
@@ -39,7 +39,7 @@ const JobDesc = (props:any) => {
         }
       },[props]) // it runs on props
       const handleClose =()=>{
-        postJob({...props , jobStatus : 'CLOSED'}).then((res)=>{
+        postJob({...props , jobStatus : 'CLOSED'}).then(()=>{
           successNotification("Success" , "Job Closed Successfully")
         }).catch((err)=>{
           errorNotification('Error', err.response?.data?.errorInfo )

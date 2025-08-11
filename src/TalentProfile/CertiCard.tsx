@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { formatDate } from '../Services/Utilities'
 
 const CertiCard = (props:any) => {

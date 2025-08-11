@@ -1,4 +1,4 @@
-import { Button, Divider } from '@mantine/core'
+import { Button } from '@mantine/core'
 import { Link, useParams } from 'react-router-dom'
 import { IconArrowLeft } from '@tabler/icons-react'
 import JobDesc from '../JobsDescription/JobDesc'

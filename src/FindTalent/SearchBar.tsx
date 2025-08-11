@@ -13,7 +13,7 @@ const SearchBar = () => {
    const matches = useMediaQuery('(max-width:475px)')
       const [opened, { toggle }] = useDisclosure(false);
    const [value, setValue] = useState<[number, number]>([1, 50]);  
-   const [name , setName] = useState('')
+   const [, setName] = useState('')
   const dispatch = useDispatch()
   const handleChange =(name:any , event:any)=>{
     if(name == 'exp'){

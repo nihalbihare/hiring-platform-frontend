@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+
 import PostedJobs from '../PostedJobs/PostedJobs'
 import PostedJobDesc from '../PostedJobs/PostedJobDesc'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { getJobPostedBy } from '../Services/JobService'
 import { Button, Drawer } from '@mantine/core'
 import { useDisclosure, useMediaQuery } from '@mantine/hooks'
+import { useEffect, useState } from 'react'
 
 const PostedJobPage = () => {
   const navigate = useNavigate()

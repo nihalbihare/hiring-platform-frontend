@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+
 import { IconAtom, IconX } from '@tabler/icons-react';
-import { IconBell } from '@tabler/icons-react';
-import {Burger, Button,Drawer,Indicator } from '@mantine/core';
+import {Burger, Button,Drawer } from '@mantine/core';
 import NavLinks from './NavLinks';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ProfileMenu from './ProfileMenu';
@@ -13,6 +12,7 @@ import { setupResponseInterceptor } from '../Inceptor/AxiosInceptor';
 import { jwtDecode } from 'jwt-decode';
 import { setUser } from '../Slices/UserSlice';
 import { useDisclosure } from '@mantine/hooks';
+import { useEffect } from 'react';
 
 
 

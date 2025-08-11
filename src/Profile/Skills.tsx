@@ -1,6 +1,6 @@
 import { ActionIcon, TagsInput } from '@mantine/core'
 import { IconCheck, IconPencil, IconX } from '@tabler/icons-react'
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeProfile } from '../Slices/ProfileSlice'
 import { successNotification } from '../Services/NotificationService'

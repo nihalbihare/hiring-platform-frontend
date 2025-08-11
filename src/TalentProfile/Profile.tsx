@@ -1,16 +1,15 @@
-import { Avatar, Button, Divider } from '@mantine/core'
+import { Avatar, Divider } from '@mantine/core'
 import { IconBriefcase, IconMapPin } from '@tabler/icons-react'
 import  { useEffect, useState } from 'react'
 import ExpCard from './ExpCard'
 import CertiCard from './CertiCard'
 import { useParams } from 'react-router-dom'
 import { getProfile } from '../Services/ProfileServices'
-import { useMediaQuery } from '@mantine/hooks'
 
 const Profile = (props:any) => {
   const {id} = useParams()
   const[profile , setProfile] = useState<any>({});
-  const matches = useMediaQuery('(max-width:475px)')
+
 
   useEffect(()=>{
     getProfile(id).then((res)=>{

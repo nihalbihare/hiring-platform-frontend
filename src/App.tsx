@@ -1,4 +1,4 @@
-import { Divider, MantineProvider, createTheme } from '@mantine/core';
+import {  MantineProvider, createTheme } from '@mantine/core';
 import { Provider } from 'react-redux';
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';

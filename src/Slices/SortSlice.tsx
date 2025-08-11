@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import React from 'react'
-import reducer from './UserSlice'
+
 
 const SortSlice = createSlice({
     name : 'sort',

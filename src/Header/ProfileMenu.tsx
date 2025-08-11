@@ -1,8 +1,8 @@
-import { Menu, Button, Text, Avatar, Switch } from '@mantine/core';
-import {IconMessageCircle, IconUserCircle, IconFileText, IconMoon, IconSun, IconMoonStars,   IconLogout2,
+import { Menu, Avatar,  } from '@mantine/core';
+import { IconUserCircle,   IconLogout2,
 } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { removeUser } from '../Slices/UserSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfile } from '../Services/ProfileServices';
@@ -10,9 +10,8 @@ import { setProfile } from '../Slices/ProfileSlice';
 import { removeJwt } from '../Slices/JwtSlice';
 
 const  ProfileMenu =()=> {
-    const [checked, setChecked] = useState(false);
+  
     const [opened, setOpened] = useState(false);
-    const navigate = useNavigate()
     const dispatch =useDispatch();
     const user =useSelector((state:any)=>state.user)
     const profile = useSelector((state: any) => state.profile)
