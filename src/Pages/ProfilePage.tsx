@@ -2,7 +2,6 @@ import { Button } from '@mantine/core'
 import Profile from '../Profile/Profile'
 import { Link } from 'react-router-dom'
 import { IconArrowLeft } from '@tabler/icons-react'
-import { profile } from '../Data/Data'
 
 
 const ProfilePage = () => {
@@ -12,7 +11,7 @@ const ProfilePage = () => {
     <Button leftSection={<IconArrowLeft size={20}/>} variant='light' color='bright-sun.4'>Back</Button>
     </Link>
     <div className='flex w-full gap-5'>
-        <Profile {...profile}/>
+        <Profile/>
        
     </div>
     </div>

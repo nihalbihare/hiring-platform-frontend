@@ -12,7 +12,7 @@ import { successNotification } from '../Services/NotificationService'
 import { getBase64 } from '../Services/Utilities'
 
 
-const Profile = (props:any) => {
+const Profile = () => {
 
      const profile = useSelector((state: any) => state.profile)
   const dispatch = useDispatch()

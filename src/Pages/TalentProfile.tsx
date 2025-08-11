@@ -2,7 +2,6 @@ import { Button} from '@mantine/core'
 import { Link, useNavigate } from 'react-router-dom'
 import { IconArrowLeft } from '@tabler/icons-react'
 import Profile from '../TalentProfile/Profile'
-import { profile } from '../Data/Data'
 import Recommended from '../TalentProfile/Recommended'
 import { useEffect, useState } from 'react'
 import { getAllProfiles } from '../Services/ProfileServices'
@@ -23,7 +22,7 @@ const TalentProfile = () => {
         <Button  onClick={()=>navigate(-1)} leftSection={<IconArrowLeft size={20}/>} my='sm' variant='light' color='bright-sun.4'>Back</Button>
         </Link>
         <div className='flex gap-5 lg-mx:flex-wrap '>
-            <Profile {...profile}/>
+            <Profile/>
             <div className='mx-8 '>
             <Recommended talents = {talent} />
             </div>

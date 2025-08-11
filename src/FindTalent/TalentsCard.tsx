@@ -40,7 +40,7 @@ const TalentsCard = (props:any) => {
     date?.setHours(hours , minutes)
     interview = {...interview}
     }
-       changeAppStatus(interview).then((res)=>{
+       changeAppStatus(interview).then(()=>{
         if(status == "INTERVIEWING"){
         successNotification('Interview Scheduled' , 'Interview Scheduled Successfully')
        

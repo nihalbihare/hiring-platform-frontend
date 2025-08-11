@@ -6,7 +6,7 @@ import CertiCard from './CertiCard'
 import { useParams } from 'react-router-dom'
 import { getProfile } from '../Services/ProfileServices'
 
-const Profile = (props:any) => {
+const Profile = () => {
   const {id} = useParams()
   const[profile , setProfile] = useState<any>({});
 
