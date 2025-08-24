@@ -1,7 +1,7 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "https://hiring-platform-backend-3.onrender.com",
+    baseURL: "https://hiring-platform-backend.onrender.com",
 });
 axiosInstance.interceptors.request.use(
     (config:InternalAxiosRequestConfig) => {
