@@ -1,6 +1,6 @@
 import axios from "axios"
 import { removeUser } from "../Slices/UserSlice"
-const base_url = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/auth/";
+const base_url = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/auth/" ;
 
 const loginUser =  async (login :any)=>{
     return axios.post(`${base_url}login`, login)
