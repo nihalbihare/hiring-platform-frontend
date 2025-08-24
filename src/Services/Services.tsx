@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const base_url = import.meta.env.VITE_USERS_API_BASE_URL || "http://localhost:8080/users/";
+const base_url = import.meta.env.VITE_USERS_BASE_URL || "http://localhost:8080/users/";
 const registerUser = async (user :any)=>{
     return axios.post(`${base_url}register`, user)
     .then(res=>res.data)
