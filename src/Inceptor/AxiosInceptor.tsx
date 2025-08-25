@@ -3,35 +3,28 @@ import axios, { InternalAxiosRequestConfig } from "axios";
 const axiosInstance = axios.create({
     baseURL: "https://hiring-platform-backend.onrender.com",
 });
+
 axiosInstance.interceptors.request.use(
-    (config:InternalAxiosRequestConfig) => {
-        // You can add any request interceptors here
-        // For example, adding an Authorization header
+    (config: InternalAxiosRequestConfig) => {
         const token = localStorage.getItem("token");
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
-            localStorage.getItem("token");
-
         }
         return config;
     },
-    (error) => {
-        // Handle request error
-        return Promise.reject(error);
-    }
+    (error) => Promise.reject(error)
 );
-export const setupResponseInterceptor=(navigate:any)=>{
+
+export const setupResponseInterceptor = (navigate: any) => {
     axiosInstance.interceptors.response.use(
-        (response)=>{
-            return response
-        },
-        (error)=>{
-            if(error.response?.status === 401){
-            navigate("/login")
+        (response) => response,
+        (error) => {
+            if (error.response?.status === 401) {
+                navigate("/login");
             }
-            return Promise.reject(error)
+            return Promise.reject(error);
         }
-    )
-}
+    );
+};
 
 export default axiosInstance;
